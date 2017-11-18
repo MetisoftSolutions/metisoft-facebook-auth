@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Metisoft, LLC - Facebook user authentication",
   "main": "src/index.js",
+  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MetisoftSolutions/metisoft-facebook-auth.git"
@@ -13,7 +14,9 @@
     "url": "https://github.com/MetisoftSolutions/metisoft-facebook-auth/issues"
   },
   "dependencies": {
+    "@types/express": "^4.0.39",
     "bluebird": "^3.5.1",
+    "express": "^4.16.2",
     "metisoft-database-util": "git+https://github.com/MetisoftSolutions/metisoft-database-util.git",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
