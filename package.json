@@ -1,6 +1,6 @@
 {
   "name": "metisoft-facebook-auth",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Metisoft, LLC - Facebook user authentication",
   "main": "src/index.js",
   "types": "types/index.d.ts",

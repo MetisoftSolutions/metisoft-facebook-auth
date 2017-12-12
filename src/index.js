@@ -233,8 +233,8 @@ function __addUserToDb(userData) {
  * The middleware function that verifies the access token found in `req.session.facebookAccessToken`.
  * If not found there, it will look in `req.facebookAccessToken`, which
  * is what should be used when first logging in with the app with Facebook.
- * If it is a valid token, `req.metisoft.user.facebookId`, `req.metisoft.user.email`,
- * and `req.metisoft.user.fullName` will be populated after this call.
+ * If it is a valid token, `res.locals.metisoft.user.facebookId`, `res.locals.metisoft.user.email`,
+ * and `res.locals.metisoft.user.fullName` will be populated after this call.
  * `req.session.facebookAccessToken` will also be populated if the token is
  * valid.
  *
@@ -268,13 +268,14 @@ function facebookAuthMiddleware(req, res, next) {
           throw new Error('LOGIN_REQUIRED');
         }
 
-        req.metisoft = req.metisoft || {};
-        req.metisoft.user = req.metisoft.user || {};
+        res.locals = res.locals || {};
+        res.locals.metisoft = res.locals.metisoft || {};
+        res.locals.metisoft.user = res.locals.metisoft.user || {};
 
-        req.metisoft.user.id = userData.id;
-        req.metisoft.user.facebookId = userData.facebookId;
-        req.metisoft.user.email = userData.email;
-        req.metisoft.user.fullName = userData.fullName;
+        res.locals.metisoft.user.id = userData.id;
+        res.locals.metisoft.user.facebookId = userData.facebookId;
+        res.locals.metisoft.user.email = userData.email;
+        res.locals.metisoft.user.fullName = userData.fullName;
 
         if (req.session) {
           req.session.user = req.session.user || {};
