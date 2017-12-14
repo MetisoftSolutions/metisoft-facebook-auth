@@ -280,6 +280,11 @@ function facebookAuthMiddleware(req, res, next) {
         if (req.session) {
           req.session.user = req.session.user || {};
           req.session.user.facebookAccessToken = accessToken;
+          req.session.save(function(error) {
+            if (error) {
+              console.error(error);
+            }
+          });
         }
 
         next();
