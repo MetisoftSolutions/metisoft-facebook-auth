@@ -276,6 +276,7 @@ function facebookAuthMiddleware(req, res, next) {
         res.locals.metisoft.user.facebookId = userData.facebookId;
         res.locals.metisoft.user.email = userData.email;
         res.locals.metisoft.user.fullName = userData.fullName;
+        res.locals.metisoft.user.facebookAccessToken = accessToken;
 
         if (req.session) {
           req.session.user = req.session.user || {};
